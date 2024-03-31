@@ -1,6 +1,11 @@
 package ru.netology.smolyak.service;
 
+import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import ru.netology.smolyak.domain.Operation;
 
 import java.util.InputMismatchException;
@@ -11,9 +16,15 @@ import java.util.Scanner;
 @Service
 public class AsyncInputOperationService {
 
-    private static Queue<Operation> queue = new LinkedList<>();
+    private final static Queue<Operation> queue = new LinkedList<>();
     public static Scanner scanner;
+@Autowired
+private StatementService statementService;
 
+    @PostConstruct
+    public void init() {
+        this.startAsyncOperationProcessing();
+    }
 
     public static boolean offerOperation() throws InputMismatchException{
 
@@ -50,7 +61,7 @@ public class AsyncInputOperationService {
                     throw new RuntimeException(e);
                 }
             } else {
-                System.out.println("Processing operation:” + operation");
+                System.out.println("Processing operation");
                 OperationService.addOperation(operation);
             }
         }

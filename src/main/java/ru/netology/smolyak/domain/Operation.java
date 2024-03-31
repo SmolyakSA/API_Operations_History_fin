@@ -14,8 +14,8 @@ public class Operation extends ArrayList<Operation> implements Serializable {
 
     private String date;
 
-    public static Operation[] operations = new Operation[1000];
-    public static int[][] statement = new int[1000][1000];
+//    public static Operation[] operations = new Operation[1000];
+//    public static int[][] statement = new int[1000][1000];
 
     public Operation(int id, long amount, String name, String date) {
         super();

@@ -1,6 +1,7 @@
 package ru.netology.smolyak.service;
 
 import org.springframework.stereotype.Service;
+import ru.netology.smolyak.domain.Customer;
 import ru.netology.smolyak.domain.Operation;
 
 import java.util.ArrayList;
@@ -17,6 +18,23 @@ public class OperationService {
 
 
     public static ArrayList<Operation> operations = new ArrayList<Operation>();
+
+
+    public OperationService(){
+
+        operations.add(0, new Operation(14,45656, "Perevod", "14.08.2022"));
+        operations.add(1, new Operation(14,45656, "Oplata", "12.02.2024"));
+    }
+
+    public static ArrayList<Operation> getOperations() {
+        return operations;
+    }
+
+    public static void setOperations(ArrayList<Customer> customers) {
+        OperationService.operations = operations;
+    }
+
+
 
     public static void addOperation(Operation operation){
 

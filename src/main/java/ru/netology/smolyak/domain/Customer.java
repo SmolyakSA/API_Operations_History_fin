@@ -1,28 +1,28 @@
 package ru.netology.smolyak.domain;
 
 import java.io.Serializable;
-import java.util.InputMismatchException;
 
 
 public class Customer implements Serializable {
-    private String customerName;
+    public String customerName;
 
-    private int birthY;
+    public int birthY;
 
-    private short region;
+    public short region;
 
-    private int customerId;
+    public int customerId;
 
-    public Customer (int customerId, String customerName, int birthY, short region){
-        super();
-        this.customerName = customerName;
-        this.birthY = birthY;
-        this.region = region;
-        this.customerId = customerId;
-    } // конструктор с аргументами
 
-    public Customer (){
-        super();
+
+//    public Customer (int customerId, String customerName, int birthY, short region){
+//        super();
+//        this.customerName = customerName;
+//        this.birthY = birthY;
+//        this.region = region;
+//        this.customerId = customerId;
+//    } // конструктор с аргументами
+
+    public Customer (int customerId, String sergey, int birthY, int region){
     } // конструктор пустой
 
     public String toString(){
