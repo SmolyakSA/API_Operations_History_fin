@@ -24,7 +24,7 @@ public class AsyncInputOperationService {
                 System.out.println("Введите данные по операциии клиента через пробел: int id, long amount, String name, String date");
                 Operation operation = new Operation(scanner.nextInt(), scanner.nextLong(), scanner.nextLine(), scanner.nextLine());
                 queue.offer(operation);
-                System.out.print("ведите в консоль 0, если хотите прервать заполнение данных, введите 1, если хотите продолжить");
+                System.out.print("ведите в консоль 0, если хотите прервать заполнение данных; введите 1, если хотите продолжить");
                 int proceed = scanner.nextInt();
                 if (proceed == 0) {
                     break;
