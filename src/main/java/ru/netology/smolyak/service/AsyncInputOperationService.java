@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ru.netology.smolyak.config.OperationProperties;
 import ru.netology.smolyak.domain.Operation;
 
 import java.util.InputMismatchException;
@@ -20,6 +21,8 @@ public class AsyncInputOperationService {
     public static Scanner scanner;
 @Autowired
 private StatementService statementService;
+@Autowired
+OperationProperties config;
 
     @PostConstruct
     public void init() {
@@ -56,7 +59,7 @@ private StatementService statementService;
             if (operation == null) {
                 try {
                     System.out.println("Waiting for next operation in queue");
-                    Thread.sleep(1_000);
+                    Thread.sleep(config.getSleepMilliSeconds());
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
