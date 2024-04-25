@@ -3,9 +3,13 @@ package ru.netology.smolyak.controller;
 
 import org.springframework.web.bind.annotation.*;
 import ru.netology.smolyak.domain.Customer;
+import ru.netology.smolyak.domain.Operation;
 import ru.netology.smolyak.service.CustomerService;
 
 import java.util.ArrayList;
+
+import static ru.netology.smolyak.service.CustomerService.customers;
+import static ru.netology.smolyak.service.StatementService.storage;
 
 @RestController
 @RequestMapping(path = "api/customers")
@@ -28,6 +32,11 @@ return CustomerService.getCustomers();
  public void Arraylist (@RequestBody ArrayList<Customer> customer){
 
    CustomerService.setCustomers(customer);
+    }
+
+    @DeleteMapping
+    public void deleteCustomer(@RequestBody Customer customer){
+        customers.remove(customer);
     }
 
 //@GetMapping

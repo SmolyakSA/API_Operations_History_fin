@@ -3,16 +3,10 @@ package ru.netology.smolyak.service;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import ru.netology.smolyak.config.OperationProperties;
 import ru.netology.smolyak.domain.Operation;
 
-import java.util.InputMismatchException;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
+import java.util.*;
 
 @Service
 public class AsyncInputOperationService {
@@ -24,19 +18,20 @@ private StatementService statementService;
 @Autowired
 OperationProperties config;
 
+
     @PostConstruct
     public void init() {
         this.startAsyncOperationProcessing();
     }
 
-    public static boolean offerOperation() throws InputMismatchException{
+    public static boolean offerOperation(Operation operation) throws InputMismatchException{
 
         int j = 0;
 
         while (true) {
             try {
                 System.out.println("Введите данные по операциии клиента через пробел: int id, long amount, String name, String date");
-                Operation operation = new Operation(scanner.nextInt(), scanner.nextLong(), scanner.nextLine(), scanner.nextLine());
+                //Operation operation = new Operation(scanner.nextInt(), scanner.nextLong(), scanner.nextLine(), scanner.nextLine());
                 queue.offer(operation);
                 System.out.print("ведите в консоль 0, если хотите прервать заполнение данных; введите 1, если хотите продолжить");
                 int proceed = scanner.nextInt();

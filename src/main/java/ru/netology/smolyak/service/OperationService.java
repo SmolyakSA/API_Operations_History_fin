@@ -30,7 +30,7 @@ public class OperationService {
         return operations;
     }
 
-    public static void setOperations(ArrayList<Customer> customers) {
+    public static void setOperations(ArrayList<Operation> operations) {
         OperationService.operations = operations;
     }
 
